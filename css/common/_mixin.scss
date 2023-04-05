@@ -1,0 +1,48 @@
+@mixin section {
+    padding: $bp;
+}
+
+@mixin inner {
+    max-width: $pc;
+    margin: 0 auto;
+    padding: 0 $g;
+
+    @media (max-width: $pc) {
+        width: auto;
+        padding: 0 $g/2;
+    }
+}
+
+@mixin flex {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: $g;
+
+    @media (max-width: $pc) {
+        flex-direction: column;
+    }
+
+    @media (max-width: $ms) {
+        flex-direction: column;
+        gap: $g*2;
+    }
+}
+
+@mixin position($position: relative, $top: auto, $right: auto, $bottom: auto, $left: auto, $zindex: auto) {
+    position: $position;
+    inset: ($top $right $bottom $left);
+    z-index: $zindex;
+}
+
+@mixin pc($pc: $pc) {
+    @media (max-width: $pc) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: $ms) {
+        @content;
+    }
+}

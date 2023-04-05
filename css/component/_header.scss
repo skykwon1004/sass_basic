@@ -1,0 +1,22 @@
+.header {
+    .gnb {
+        @include inner;
+
+        ul {
+            @include flex;
+        }   
+
+        @include pc(1000px) {
+            @include position(fixed, 0, auto, 0, 0, 999);
+            background: $mc;
+            color: #fff;
+            width: calc(100% - 90px);
+        }
+
+        @include mobile {
+            background: gray;
+        }
+
+        ;
+    }
+}
